@@ -1,0 +1,62 @@
+{
+  "extensionName": {
+    "message": "BB Code Helper",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Adds a context submenu to tag quotes, images, and links for as BB Code to be pasted into forum posts.",
+    "description": "Description of the add-on."
+  },
+
+  "menuItemMultiMode": {
+    "message": "Multi-mode?",
+    "description": "Title of context menu item that toggles multiple tags when clicked."
+  },
+
+  "menuItemQuote": {
+    "message": "Quote Selection",
+    "description": "Title of context menu item that tags the selected text when clicked."
+  },
+
+  "menuItemImageFull": {
+    "message": "Tag Image With Link",
+    "description": "Title of context menu item that tags both the image and its link (if any) when clicked."
+  },
+
+  "menuItemImage": {
+    "message": "Tag Image",
+    "description": "Title of context menu item that tags an image when clicked."
+  },
+
+  "menuItemLink": {
+    "message": "Tag Link",
+    "description": "Title of context menu item that tags a link when clicked."
+  },
+
+  "menuClearClipboard": {
+    "message": "Clear Clipboard",
+    "description": "Title of context menu item that clears the clipboard when clicked."
+  },
+
+  "errorNoSelection": {
+    "message": "No text selected...",
+    "description": "Error message when there is no selected text."
+  },
+
+  "errorNoImage": {
+    "message": "No image...",
+    "description": "Error message when there is no image."
+  },
+
+  "errorNoLink": {
+    "message": "There is no link...",
+    "description": "Error message when there is no image."
+  },
+
+  "errorGeneric": {
+    "message": "Error message: ",
+    "description": "Generic error message."
+  }
+
+}
