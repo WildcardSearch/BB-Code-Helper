@@ -7,41 +7,41 @@
  */
 
 browser.contextMenus.create({
-    id: "mft-selection",
-    title: browser.i18n.getMessage("menuItemQuote"),
-    contexts: ["selection"],
+	id: "mft-selection",
+	title: browser.i18n.getMessage("menuItemQuote"),
+	contexts: ["selection"],
 });
 
 browser.contextMenus.create({
-    id: "mft-image-full",
-    title: browser.i18n.getMessage("menuItemImageFull"),
-    contexts: ["image"],
+	id: "mft-image-full",
+	title: browser.i18n.getMessage("menuItemImageFull"),
+	contexts: ["image"],
 });
 
 browser.contextMenus.create({
-    id: "mft-image",
-    title: browser.i18n.getMessage("menuItemImage"),
-    contexts: ["image"],
+	id: "mft-image",
+	title: browser.i18n.getMessage("menuItemImage"),
+	contexts: ["image"],
 });
 
 browser.contextMenus.create({
-    id: "mft-link",
-    title: browser.i18n.getMessage("menuItemLink"),
-    contexts: ["link"],
+	id: "mft-link",
+	title: browser.i18n.getMessage("menuItemLink"),
+	contexts: ["link"],
 });
 
 browser.contextMenus.create({
-    id: "mft-clear-clipboard",
-    title: browser.i18n.getMessage("menuClearClipboard"),
-    contexts: ["all"],
+	id: "mft-clear-clipboard",
+	title: browser.i18n.getMessage("menuClearClipboard"),
+	contexts: ["all"],
 });
 
 var multiMode = false;
 browser.contextMenus.create({
-    id: "mft-multi-mode",
-    title: browser.i18n.getMessage("menuItemMultiMode"),
-    type: "checkbox",
-    contexts: ["all"],
+	id: "mft-multi-mode",
+	title: browser.i18n.getMessage("menuItemMultiMode"),
+	type: "checkbox",
+	contexts: ["all"],
 	checked: multiMode,
 });
 
@@ -65,11 +65,10 @@ function onClicked(info, tab) {
 	switch (info.menuItemId) {
 	case "mft-multi-mode":
 		multiMode = !multiMode;
-		break;
+		return;
 	case "mft-clear-clipboard":
 		clearClipboard(tab);
 		return;
-		break;
 	case "mft-selection":
 		if (typeof info.selectionText == "undefined" ||
 			!info.selectionText) {
@@ -142,8 +141,8 @@ function onClicked(info, tab) {
 	}).then(() => {
 		return browser.tabs.executeScript(tab.id, {
 			code: "copyTag(" +
-					JSON.stringify(text) + "," +
-					mmString + ");",
+				JSON.stringify(text) + "," +
+				mmString + ");",
 		});
 	}).catch((error) => {
 		console.error(browser.i18n.getMessage("errorGeneric") + error);
