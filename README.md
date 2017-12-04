@@ -1,4 +1,4 @@
-# BB Code Helper 0.0.1
+# BB Code Helper 0.0.2
 
 Adds a context submenu to tag quotes, images, and links for as BB Code to be pasted into forum posts.
 
