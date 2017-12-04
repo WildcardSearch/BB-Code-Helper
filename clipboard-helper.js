@@ -31,7 +31,8 @@ function copyTag(text, append) {
         e.preventDefault();
 
 		// multi-mode
-		if (append) {
+		if (append &&
+			clipboardText.length > 0) {
 			text = clipboardText + "\n" + text;
 		}
 
