@@ -25,10 +25,10 @@ function copyTag(text, append) {
 	 * @param  event
 	 * @return void
 	 */
-    function onCopy(e) {
-        document.removeEventListener("copy", onCopy, true);
-        e.stopImmediatePropagation();
-        e.preventDefault();
+	function onCopy(e) {
+		document.removeEventListener("copy", onCopy, true);
+		e.stopImmediatePropagation();
+		e.preventDefault();
 
 		// multi-mode
 		if (append &&
@@ -36,11 +36,11 @@ function copyTag(text, append) {
 			text = clipboardText + "\n" + text;
 		}
 
-        e.clipboardData.setData("text/plain", text);
-        e.clipboardData.setData("text/html", "");
-    }
-    document.addEventListener("copy", onCopy, true);
-    document.execCommand("copy");
+		e.clipboardData.setData("text/plain", text);
+		e.clipboardData.setData("text/html", "");
+	}
+	document.addEventListener("copy", onCopy, true);
+	document.execCommand("copy");
 }
 
 /**
