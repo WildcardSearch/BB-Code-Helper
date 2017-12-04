@@ -65,6 +65,7 @@ function onClicked(info, tab) {
 	switch (info.menuItemId) {
 	case "mft-multi-mode":
 		multiMode = !multiMode;
+		return;
 		break;
 	case "mft-clear-clipboard":
 		clearClipboard(tab);
