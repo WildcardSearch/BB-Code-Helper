@@ -66,7 +66,8 @@ function onClicked(info, tab) {
 	}
 
 	var text = "",
-		mmString = "false";
+		mmString = "false",
+		sep = "\n\n";
 
 	switch (info.menuItemId) {
 	case "mft-multi-mode":
@@ -153,10 +154,21 @@ function onClicked(info, tab) {
 			code: "getClipboardData();",
 		});
 	}).then(() => {
+		return browser.storage.local.get("lineBreaks");
+	}).then((results) => {
+		if (!results ||
+			!results.lineBreaks ||
+			results.lineBreaks == 0) {
+			sep = "";
+		} else if (results.lineBreaks == 1) {
+			sep = "\n";
+		}
+
 		return browser.tabs.executeScript(tab.id, {
 			code: "copyTag(" +
 				JSON.stringify(text) + "," +
-				mmString + ");",
+				mmString + ", " +
+				JSON.stringify(sep) + ");",
 		});
 	}).catch((error) => {
 		console.error(browser.i18n.getMessage("errorGeneric") + error);
@@ -178,7 +190,7 @@ function clearClipboard(tab) {
 		}
 	}).then(() => {
 		return browser.tabs.executeScript(tab.id, {
-			code: "copyTag(\"\", false);",
+			code: "copyTag(\"\");",
 		});
 	}).catch((error) => {
 		console.error(browser.i18n.getMessage("errorGeneric") + error);

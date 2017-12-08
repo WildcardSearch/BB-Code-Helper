@@ -44,6 +44,31 @@
 		"description": "Title of context menu item that clears the clipboard when clicked."
 	},
 
+	"labelLineBreaks": {
+		"message": "Choose how many line breaks to insert between tags:",
+		"description": "Title of options page label for the line breaks setting."
+	},
+
+	"optionNone": {
+		"message": "None",
+		"description": "Title of option for no line breaks."
+	},
+
+	"optionOne": {
+		"message": "One",
+		"description": "Title of option for one line break."
+	},
+
+	"optionTwo": {
+		"message": "Two",
+		"description": "Title of option for two line breaks."
+	},
+
+	"submitSave": {
+		"message": "Save",
+		"description": "Title of submit button for the options page."
+	},
+
 	"errorNoSelection": {
 		"message": "No text selected...",
 		"description": "Error message when there is no selected text."

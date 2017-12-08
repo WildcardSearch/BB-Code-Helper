@@ -12,11 +12,16 @@
 		]
 	},
 
+	"options_ui": {
+		"page": "options/options.html"
+	},
+
 	"permissions": [
 		"activeTab",
 		"contextMenus",
 		"clipboardRead",
-		"clipboardWrite"
+		"clipboardWrite",
+		"storage"
 	],
 
 	"icons": {
