@@ -5,7 +5,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Adds a context submenu to tag quotes, images, and links for as BB Code to be pasted into forum posts.",
+		"message": "Adds a context submenu to tag quotes, images, and links as BB Code to be pasted into forum posts.",
 		"description": "Description of the add-on."
 	},
 
@@ -17,6 +17,11 @@
 	"menuItemQuote": {
 		"message": "Quote Selection",
 		"description": "Title of context menu item that tags the selected text when clicked."
+	},
+
+	"menuItemCode": {
+		"message": "Copy As Code",
+		"description": "Title of context menu item that tags the selected text as code when clicked."
 	},
 
 	"menuItemImageFull": {
@@ -37,6 +42,31 @@
 	"menuClearClipboard": {
 		"message": "Clear Clipboard",
 		"description": "Title of context menu item that clears the clipboard when clicked."
+	},
+
+	"labelLineBreaks": {
+		"message": "Choose how many line breaks to insert between tags:",
+		"description": "Title of options page label for the line breaks setting."
+	},
+
+	"optionNone": {
+		"message": "None",
+		"description": "Title of option for no line breaks."
+	},
+
+	"optionOne": {
+		"message": "One",
+		"description": "Title of option for one line break."
+	},
+
+	"optionTwo": {
+		"message": "Two",
+		"description": "Title of option for two line breaks."
+	},
+
+	"submitSave": {
+		"message": "Save",
+		"description": "Title of submit button for the options page."
 	},
 
 	"errorNoSelection": {

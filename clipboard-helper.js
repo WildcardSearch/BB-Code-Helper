@@ -18,7 +18,7 @@ var clipboardText = "";
  * @param  boolean
  * @return void
  */
-function copyTag(text, append) {
+function copyTag(text, append, sep) {
 	/**
 	 * event handler for synthetic copy event
 	 *
@@ -31,14 +31,18 @@ function copyTag(text, append) {
 		e.preventDefault();
 
 		// multi-mode
-		if (append &&
+		if (typeof append !== "undefined" &&
+			append === true &&
 			clipboardText.length > 0) {
-			text = clipboardText + "\n" + text;
+			text = clipboardText + sep + text;
 		}
 
 		e.clipboardData.setData("text/plain", text);
 		e.clipboardData.setData("text/html", "");
 	}
+
+	text = text || "";
+	sep = sep || "";
 	document.addEventListener("copy", onCopy, true);
 	document.execCommand("copy");
 }
