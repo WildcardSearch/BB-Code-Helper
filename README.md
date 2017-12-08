@@ -1,13 +1,25 @@
-# BB Code Helper 0.0.2
+# BB Code Helper 0.1
 
-Adds a context submenu to tag quotes, images, and links for as BB Code to be pasted into forum posts.
+Adds a context submenu to tag code, quotes, images, and links as BB Code to be pasted into forum posts.
 
-## Selection
+## Options
+
+You may configure how many line breaks you would like inserted between tags when using `Multi-Mode`
+
+## Quoting
 
 Highlight text and choose `Quote Selection` from the `BB Code Helper` context submenu to copy the text as a forum quote using BB Code
 
 ```
-[quote]selected text[/quote]
+[quote]{selection}[/quote]
+```
+
+## Code Blocks
+
+Highlight text and choose `Copy As Code` from the `BB Code Helper` context submenu to copy the text as a code block using BB Code
+
+```
+[code]{selection}[/code]
 ```
 
 ## Links
@@ -15,11 +27,11 @@ Highlight text and choose `Quote Selection` from the `BB Code Helper` context su
 Right click a link and select `Tag Link` from the `BB Code Helper` context submenu to copy a BB Code representation of the link to the clipboard. If there is text inside the `<a/>`, it will be used as a caption for the BB Code, if not, the simple version will be used.
 
 ```
-[url=http://www.url.com]Caption[/url]
+[url={URL}]{Caption}[/url]
 
 OR
 
-[url]http://www.url.com[/url]
+[url]{URL}[/url]
 ```
 
 ## Images
@@ -27,13 +39,13 @@ OR
 Right click an image and select `Tag Image` or `Tag Image With Link` from the `BB Code Helper` context submenu to copy a BB Code representation of the image to the clipboard.
 
 ```
-[img]{imgUrl}[/img]
+[img]{image URL}[/img]
 ```
 
 If tagging the image and the link (if any), the link will be wrapped in `url` BB Code.
 
 ```
-[url={linkUrl}][img]{imgUrl}[/img][/url]
+[url={link URL}][img]{image URL}[/img][/url]
 ```
 
 ## Multi-Mode
