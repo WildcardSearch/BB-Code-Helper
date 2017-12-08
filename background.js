@@ -7,8 +7,14 @@
  */
 
 browser.contextMenus.create({
-	id: "mft-selection",
+	id: "mft-selection-quote",
 	title: browser.i18n.getMessage("menuItemQuote"),
+	contexts: ["selection"],
+});
+
+browser.contextMenus.create({
+	id: "mft-selection-code",
+	title: browser.i18n.getMessage("menuItemCode"),
 	contexts: ["selection"],
 });
 
@@ -55,7 +61,7 @@ browser.contextMenus.onClicked.addListener(onClicked);
  * @return void
  */
 function onClicked(info, tab) {
-	if (["mft-selection", "mft-image-full", "mft-image", "mft-link", "mft-multi-mode", "mft-clear-clipboard"].indexOf(info.menuItemId) === -1) {
+	if (["mft-selection-quote", "mft-selection-code", "mft-image-full", "mft-image", "mft-link", "mft-multi-mode", "mft-clear-clipboard"].indexOf(info.menuItemId) === -1) {
 		return;
 	}
 
@@ -69,13 +75,21 @@ function onClicked(info, tab) {
 	case "mft-clear-clipboard":
 		clearClipboard(tab);
 		return;
-	case "mft-selection":
+	case "mft-selection-quote":
 		if (typeof info.selectionText == "undefined" ||
 			!info.selectionText) {
 			return;
 		}
 
 		text = "[quote]" + info.selectionText + "[/quote]";
+		break;
+	case "mft-selection-code":
+		if (typeof info.selectionText == "undefined" ||
+			!info.selectionText) {
+			return;
+		}
+
+		text = "[code]" + info.selectionText + "[/code]";
 		break;
 	case "mft-image-full":
 		if (typeof info.srcUrl === "undefined" ||

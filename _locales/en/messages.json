@@ -19,6 +19,11 @@
 		"description": "Title of context menu item that tags the selected text when clicked."
 	},
 
+	"menuItemCode": {
+		"message": "Copy As Code",
+		"description": "Title of context menu item that tags the selected text as code when clicked."
+	},
+
 	"menuItemImageFull": {
 		"message": "Tag Image With Link",
 		"description": "Title of context menu item that tags both the image and its link (if any) when clicked."
