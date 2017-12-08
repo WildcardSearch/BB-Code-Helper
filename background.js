@@ -66,15 +66,17 @@ function onClicked(info, tab) {
 	}
 
 	var text = "",
-		mmString = "false",
-		sep = "\n\n";
+		sep = "\n\n",
+		promiseChain = loadContentScript(tab);
 
 	switch (info.menuItemId) {
 	case "mft-multi-mode":
 		multiMode = !multiMode;
 		return;
 	case "mft-clear-clipboard":
-		clearClipboard(tab);
+		promiseChain.then(() => {
+			sendToClipboard(tab);
+		});
 		return;
 	case "mft-selection-quote":
 		if (typeof info.selectionText == "undefined" ||
@@ -82,7 +84,7 @@ function onClicked(info, tab) {
 			return;
 		}
 
-		text = "[quote]" + info.selectionText + "[/quote]";
+		text = `[quote]${info.selectionText}[/quote]`;
 		break;
 	case "mft-selection-code":
 		if (typeof info.selectionText == "undefined" ||
@@ -90,7 +92,7 @@ function onClicked(info, tab) {
 			return;
 		}
 
-		text = "[code]" + info.selectionText + "[/code]";
+		text = `[code]${info.selectionText}[/code]`;
 		break;
 	case "mft-image-full":
 		if (typeof info.srcUrl === "undefined" ||
@@ -100,9 +102,9 @@ function onClicked(info, tab) {
 
 		if (typeof info.linkUrl !== "undefined" &&
 			info.linkUrl) {
-			text = "[url=" + info.linkUrl + "][img]" + info.srcUrl + "[/img][/url]";
+			text = `[url=${info.linkUrl}][img]${info.srcUrl}[/img][/url]`;
 		} else {
-			text = "[img]" + info.srcUrl + "[/img]";
+			text = `[img]${info.srcUrl}[/img]`;
 		}
 		break;
 	case "mft-image":
@@ -111,7 +113,7 @@ function onClicked(info, tab) {
 			return;
 		}
 
-		text = "[img]" + info.srcUrl + "[/img]";
+		text = `[img]${info.srcUrl}[/img]`;
 		break;
 	case "mft-link":
 		if (typeof info.linkUrl == "undefined" ||
@@ -122,15 +124,11 @@ function onClicked(info, tab) {
 		if (typeof info.linkText != "undefined" &&
 			info.linkText &&
 			info.linkText != info.linkUrl) {
-			text = "[url=" + info.linkUrl + "]" + info.linkText + "[/url]";
+			text = `[url=${info.linkUrl}]${info.linkText}[/url]`;
 		} else {
-			text = "[url]" + info.linkUrl + "[/url]";
+			text = `[url]${info.linkUrl}[/url]`;
 		}
 		break;
-	}
-
-	if (multiMode) {
-		mmString = "true";
 	}
 
 	text = text
@@ -140,16 +138,7 @@ function onClicked(info, tab) {
 		.replace(/</g, "&lt;")
 		.replace(/>/g, "&gt;");
 
-	browser.tabs.executeScript(tab.id, {
-		code: "typeof copyTag === 'function';",
-	}).then((results) => {
-		if (!results ||
-			results[0] !== true) {
-			return browser.tabs.executeScript(tab.id, {
-				file: "clipboard-helper.js",
-			});
-		}
-	}).then(() => {
+	promiseChain.then(() => {
 		return browser.tabs.executeScript(tab.id, {
 			code: "getClipboardData();",
 		});
@@ -164,22 +153,20 @@ function onClicked(info, tab) {
 			sep = "\n";
 		}
 
-		return browser.tabs.executeScript(tab.id, {
-			code: "copyTag(" +
-				JSON.stringify(text) + "," +
-				mmString + ", " +
-				JSON.stringify(sep) + ");",
-		});
+		return sendToClipboard(tab, text, multiMode, sep);
 	}).catch((error) => {
 		console.error(browser.i18n.getMessage("errorGeneric") + error);
 	});
 }
 
 /**
- * @return void
+ * load the content script, if necessary
+ *
+ * @param  Object
+ * @return Promise
  */
-function clearClipboard(tab) {
-	browser.tabs.executeScript(tab.id, {
+function loadContentScript(tab) {
+	return browser.tabs.executeScript(tab.id, {
 		code: "typeof copyTag === 'function';",
 	}).then((results) => {
 		if (!results ||
@@ -188,11 +175,28 @@ function clearClipboard(tab) {
 				file: "clipboard-helper.js",
 			});
 		}
-	}).then(() => {
-		return browser.tabs.executeScript(tab.id, {
-			code: "copyTag(\"\");",
-		});
-	}).catch((error) => {
-		console.error(browser.i18n.getMessage("errorGeneric") + error);
+	})
+}
+
+/**
+ * glue all options together and call the content script
+ *
+ * @param  Object
+ * @param  String
+ * @param  Boolean
+ * @param  String
+ * @return Promise
+ */
+function sendToClipboard(tab, text, append, sep) {
+	var copyCode = "";
+
+	text = text ? JSON.stringify(text) : '""';
+	append = append === true ? "true" : "false";
+	sep = sep ? JSON.stringify(sep) : '""';
+
+	copyCode = `copyTag(${text}, ${append}, ${sep});`;
+
+	return browser.tabs.executeScript(tab.id, {
+		code: copyCode,
 	});
 }
