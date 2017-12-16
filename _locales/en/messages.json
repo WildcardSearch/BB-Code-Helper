@@ -44,6 +44,16 @@
 		"description": "Title of context menu item that clears the clipboard when clicked."
 	},
 
+	"optionBbCode": {
+		"message": "BB Code",
+		"description": "Title of option to output as BB Code."
+	},
+
+	"optionMarkdown": {
+		"message": "Markdown",
+		"description": "Title of option to output as Markdown."
+	},
+
 	"labelLineBreaks": {
 		"message": "Choose how many line breaks to insert between tags:",
 		"description": "Title of options page label for the line breaks setting."

@@ -24,7 +24,8 @@ function init() {
 function saveOptions(e) {
 	e.preventDefault();
 	browser.storage.local.set({
-		lineBreaks: document.querySelector("#lineBreaks").value
+		lineBreaks: document.querySelector("#lineBreaks").value,
+		outputFormat: document.querySelector("#outputFormat").value
 	});
 }
 
@@ -41,6 +42,7 @@ function restoreOptions() {
 	 */
 	function setCurrentChoice(result) {
 		document.querySelector("#lineBreaks").value = result.lineBreaks || 2;
+		document.querySelector("#outputFormat").value = result.outputFormat || 0;
 	}
 
 	/**
@@ -53,7 +55,7 @@ function restoreOptions() {
 	}
 
 	// retrieve setting value
-	var getting = browser.storage.local.get("lineBreaks");
+	var getting = browser.storage.local.get(["lineBreaks", "outputFormat"]);
 	getting.then(setCurrentChoice, onError);
 }
 
@@ -63,6 +65,8 @@ function restoreOptions() {
  * @return void
  */
 function loadLanguage() {
+	document.querySelector("#optionBbCode").innerHTML = browser.i18n.getMessage("optionBbCode");
+	document.querySelector("#optionMarkdown").innerHTML = browser.i18n.getMessage("optionMarkdown");
 	document.querySelector("#labelLineBreaks").innerHTML = browser.i18n.getMessage("labelLineBreaks");
 	document.querySelector("#optionNone").innerHTML = browser.i18n.getMessage("optionNone");
 	document.querySelector("#optionOne").innerHTML = browser.i18n.getMessage("optionOne");
