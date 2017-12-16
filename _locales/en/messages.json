@@ -59,6 +59,11 @@
 		"description": "Title of option to output as Markdown."
 	},
 
+	"labelOutputFormat": {
+		"message": "Choose to tag as BB Code or Markdown:",
+		"description": "Title of options page label for the output format setting."
+	},
+
 	"labelLineBreaks": {
 		"message": "Choose how many line breaks to insert between tags:",
 		"description": "Title of options page label for the line breaks setting."

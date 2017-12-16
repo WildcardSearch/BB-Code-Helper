@@ -68,6 +68,7 @@ function loadLanguage() {
 	document.querySelector("#labelTitleBar").innerHTML = browser.i18n.getMessage("labelTitleBar");
 	document.querySelector("#optionBbCode").innerHTML = browser.i18n.getMessage("optionBbCode");
 	document.querySelector("#optionMarkdown").innerHTML = browser.i18n.getMessage("optionMarkdown");
+	document.querySelector("#labelOutputFormat").innerHTML = browser.i18n.getMessage("labelOutputFormat");
 	document.querySelector("#labelLineBreaks").innerHTML = browser.i18n.getMessage("labelLineBreaks");
 	document.querySelector("#optionNone").innerHTML = browser.i18n.getMessage("optionNone");
 	document.querySelector("#optionOne").innerHTML = browser.i18n.getMessage("optionOne");
