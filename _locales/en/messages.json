@@ -5,7 +5,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Adds a context submenu to tag quotes, images, and links as BB Code to be pasted into forum posts.",
+		"message": "Adds a context submenu to tag quotes, images, and links as BB Code or Markdown",
 		"description": "Description of the add-on."
 	},
 
