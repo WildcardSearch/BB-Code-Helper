@@ -2,10 +2,16 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "0.1",
+	"version": "0.2",
 	"default_locale": "en",
 	"homepage_url": "https://github.com/WildcardSearch/BB-Code-Helper",
 
+	"applications": {
+		"gecko": {
+			"id": "{acf0daf0-0253-42df-bcfa-c727f6b907eb}"
+		}
+	},
+	
 	"background": {
 		"scripts": [
 			"background.js"

@@ -2,17 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="options.css" />
 </head>
 <body>
 	<form>
-		<label id="labelLineBreaks">Choose how many line breaks to insert between tags:</label>
-		<br />
-		<select id="lineBreaks">
-			<option id="optionNone" value="0">None</option>
-			<option id="optionOne" value="1">One</option>
-			<option id="optionTwo" value="2">Two</option>
-		</select>
-		<button id="submitSave" type="submit">Save</button>
+		<div class="container">
+			<div id="labelTitleBar" class="titleBar">BB Code Helper Settings</div>
+			<div class="settingsBody">
+				<label id="labelOutputFormat">Choose to tag as BB Code or Markdown:</label>
+				<br />
+				<select id="outputFormat">
+					<option id="optionBbCode" value="0">BB Code</option>
+					<option id="optionMarkdown" value="1">Markdown</option>
+				</select>
+				<br />
+				<br />
+				<label id="labelLineBreaks">Choose how many line breaks to insert between tags:</label>
+				<br />
+				<select id="lineBreaks">
+					<option id="optionNone" value="0">None</option>
+					<option id="optionOne" value="1">One</option>
+					<option id="optionTwo" value="2">Two</option>
+				</select>
+				<br />
+			</div>
+			<div class="buttonBar">
+				<button id="submitSave" type="submit">Save</button>
+			</div>
+		</div>
 	</form>
 	<script src="options.js"></script>
 </body>

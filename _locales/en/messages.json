@@ -5,7 +5,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Adds a context submenu to tag quotes, images, and links as BB Code to be pasted into forum posts.",
+		"message": "Adds a context submenu to tag quotes, images, and links as BB Code or Markdown",
 		"description": "Description of the add-on."
 	},
 
@@ -42,6 +42,26 @@
 	"menuClearClipboard": {
 		"message": "Clear Clipboard",
 		"description": "Title of context menu item that clears the clipboard when clicked."
+	},
+
+	"labelTitleBar": {
+		"message": "BB Code Helper Settings",
+		"description": "Title of options page label."
+	},
+
+	"optionBbCode": {
+		"message": "BB Code",
+		"description": "Title of option to output as BB Code."
+	},
+
+	"optionMarkdown": {
+		"message": "Markdown",
+		"description": "Title of option to output as Markdown."
+	},
+
+	"labelOutputFormat": {
+		"message": "Choose to tag as BB Code or Markdown:",
+		"description": "Title of options page label for the output format setting."
 	},
 
 	"labelLineBreaks": {
