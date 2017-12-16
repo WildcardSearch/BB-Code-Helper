@@ -6,6 +6,12 @@
 	"default_locale": "en",
 	"homepage_url": "https://github.com/WildcardSearch/BB-Code-Helper",
 
+	"applications": {
+		"gecko": {
+			"id": "{acf0daf0-0253-42df-bcfa-c727f6b907eb}"
+		}
+	},
+	
 	"background": {
 		"scripts": [
 			"background.js"
