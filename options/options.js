@@ -65,15 +65,9 @@ function restoreOptions() {
  * @return void
  */
 function loadLanguage() {
-	document.querySelector("#labelTitleBar").innerHTML = browser.i18n.getMessage("labelTitleBar");
-	document.querySelector("#optionBbCode").innerHTML = browser.i18n.getMessage("optionBbCode");
-	document.querySelector("#optionMarkdown").innerHTML = browser.i18n.getMessage("optionMarkdown");
-	document.querySelector("#labelOutputFormat").innerHTML = browser.i18n.getMessage("labelOutputFormat");
-	document.querySelector("#labelLineBreaks").innerHTML = browser.i18n.getMessage("labelLineBreaks");
-	document.querySelector("#optionNone").innerHTML = browser.i18n.getMessage("optionNone");
-	document.querySelector("#optionOne").innerHTML = browser.i18n.getMessage("optionOne");
-	document.querySelector("#optionTwo").innerHTML = browser.i18n.getMessage("optionTwo");
-	document.querySelector("#submitSave").innerHTML = browser.i18n.getMessage("submitSave");
+	["labelTitleBar", "optionBbCode", "optionMarkdown", "labelOutputFormat", "labelLineBreaks", "optionNone", "optionOne", "optionTwo", "submitSave"].forEach(key => {
+		document.querySelector(`#${key}`).innerHTML = browser.i18n.getMessage(key);
+	});
 }
 
 document.addEventListener("DOMContentLoaded", init);
