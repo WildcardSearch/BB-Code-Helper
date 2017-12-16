@@ -1,0 +1,40 @@
+div.container {
+	width: 85%;
+	margin: 20px auto;
+	font-family: Arial;
+	font-size: 16px;
+
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px grey;
+	text-shadow: 1px 1px 2px darkgrey;
+	background: white;
+}
+
+div.container label {
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+div.titleBar {
+	width: 100%;
+	height: 30px;
+	background: lightgrey;
+	color: black;
+	font-size: 24px;
+	text-align: center;
+	font-weight: bold;
+}
+
+div.settingsBody {
+	padding: 10px;
+}
+
+div.buttonBar {
+	width: 100%;
+	height: 24px;
+	background: lightgrey;
+	color: black;
+	font-size: 18px;
+	text-align: center;
+}

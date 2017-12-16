@@ -44,6 +44,11 @@
 		"description": "Title of context menu item that clears the clipboard when clicked."
 	},
 
+	"labelTitleBar": {
+		"message": "BB Code Helper Settings",
+		"description": "Title of options page label."
+	},
+
 	"optionBbCode": {
 		"message": "BB Code",
 		"description": "Title of option to output as BB Code."

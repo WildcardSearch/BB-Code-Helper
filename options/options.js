@@ -65,6 +65,7 @@ function restoreOptions() {
  * @return void
  */
 function loadLanguage() {
+	document.querySelector("#labelTitleBar").innerHTML = browser.i18n.getMessage("labelTitleBar");
 	document.querySelector("#optionBbCode").innerHTML = browser.i18n.getMessage("optionBbCode");
 	document.querySelector("#optionMarkdown").innerHTML = browser.i18n.getMessage("optionMarkdown");
 	document.querySelector("#labelLineBreaks").innerHTML = browser.i18n.getMessage("labelLineBreaks");
